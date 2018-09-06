@@ -13,11 +13,7 @@
         {{ story.character }} who has a {{ story.prop.toLowerCase() }}. And to make it more interesting, why don't you make it so {{ (story.bonus || '').toLowerCase() }}
         <span @click="load()" class="text-success clickable" title="Generate a new story prompt"><ion-icon class="align-middle" name="refresh"></ion-icon></span>
     </p>
-    <div class="form-group">
-        <textarea autofocus v-model="userStory" v-on:input="generatePasswordWords()" class="form-control" rows="3" placeholder="A brief story" required></textarea>
-        <small class="form-text text-muted">Don't forget to punctuate your story.</small>
-    </div>
-    <div class="text-center">
+    <div class="text-center" id="generatedPassword">
         <button v-if="generatedPassword" type="button" name="acceptBtn" class="btn btn-success" @click="$emit('story-complete', generatedPassword)">
             <ion-icon class="align-middle" name="checkmark"></ion-icon>
         </button>
@@ -28,6 +24,10 @@
             <small class="form-text text-danger">This is not the final password. Press the checkmark and we will spice it up a bit.</small>
         </p>
         <p v-else-if="generatedPassword !== null" class="text-danger">Unable to create a good starting password. Please try fleshing out your story some more.</p>
+    </div>
+    <div class="form-group">
+        <textarea autofocus v-model="userStory" v-on:input="generatePasswordWords()" class="form-control" rows="3" placeholder="A brief story" required></textarea>
+        <small class="form-text text-muted">Don't forget to punctuate your story.</small>
     </div>
 </div>
 </template>

@@ -115,7 +115,7 @@ export default {
             }
         },
         restart: function() {
-            window.alertify.confirm('Start Over?','Are you sure you want to start over?', function() {
+            window.alertify.confirm('Start Over?', 'Are you sure you want to start over?', function() {
                 this.step = 1;
                 this.password = null;
                 this.timeToCrack = null;
@@ -134,7 +134,13 @@ export default {
 <style>
 #app {
     margin: auto;
-    height: 100vh;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    overflow: auto;
 }
 
 .infos {
@@ -158,6 +164,7 @@ body,
 html {
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    /* overflow: hidden; */
+    /* height: 100%; */
 }
 </style>

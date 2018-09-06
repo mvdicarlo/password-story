@@ -51,5 +51,8 @@ export default {
 </script>
 
 <style scoped>
-
+    .form-group {
+        padding-bottom: 1rem;
+        margin-bottom: 0rem;
+    }
 </style>
